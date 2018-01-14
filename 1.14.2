@@ -1,0 +1,29 @@
+public class Solution {
+    public String replaceSpace(StringBuffer str) {
+    	String st=str.toString();//StringBuffer=>String
+        char[] ct=st.toCharArray();//String=>char
+        char[] ctc=new char[100];
+    	int n=ct.length;
+        int j=0;
+        for(int i=0;i<n;){
+            if(ct[i]==' '){
+                ctc[j]='%';
+                ctc[j+1]='2';
+                ctc[j+2]='0';
+                j+=3;
+                i++;
+            }else{
+                ctc[j]=ct[i];
+                i++;
+                j++;
+            }
+        }
+    StringBuffer sb =new StringBuffer(String.valueOf(ctc));
+    //String=>StringBuffer
+        sb.setLength(j);//new length
+    return sb.toString();//StringBuffer=>String
+    }
+    
+    
+    
+}
