@@ -1,6 +1,22 @@
 public class Solution {
     public static boolean Find(int target, int [][] array) {
 	boolean result=false;
+	
+        /*int row=0;
+        int col=array[0].length-1;//列数
+        while(row<array.length&&col>=0){
+            int n=array[row][col];
+            if(target>n){
+                ++row;
+            }
+            else if(target<n){
+                --col;
+            }else{
+                result=true;
+                break;
+            }
+        }*/
+	
         for(int i=0;i<array.length;i++){
             for(int j=0;j<array[i].length;j++){
                 if(array[i][j]==target){
