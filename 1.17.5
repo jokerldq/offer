@@ -1,0 +1,26 @@
+import java.util.Stack;
+
+public class Solution {
+    Stack<Integer> stack1 = new Stack<Integer>();
+    Stack<Integer> stack2 = new Stack<Integer>();
+    
+    public void push(int node) {
+        stack1.push(node);
+    }
+    
+    public int pop() {
+    	Integer r=null;
+        if(!stack2.empty()){
+            r=stack2.pop();
+        }else{
+            while(!stack1.empty()){
+                r=stack1.pop();
+                stack2.push(r);
+            }
+            if(!stack2.empty()){
+                r=stack2.pop();
+            }
+        }
+        return r;
+    }
+}
