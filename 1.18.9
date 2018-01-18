@@ -1,0 +1,10 @@
+public class Solution {
+    public int JumpFloorII(int target) {
+        if(target<3){
+            return target;
+        }
+        else{
+            return 2*JumpFloorII(target-1);
+        }
+    }
+}
