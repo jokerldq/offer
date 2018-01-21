@@ -1,0 +1,22 @@
+public class Solution {
+    public double Power(double base, int exponent) {
+        /*double c=1;
+        if(exponent>0){
+             for(int i=0;i<exponent;i++){
+            c=c*base;
+        }
+        }else{
+            for(int i=0;i<-exponent;i++){
+                c=c*base;
+            }
+            c=1/c;
+        }
+       
+        return c;*/
+        if(exponent==0) return 1;
+        if(exponent<0)
+            return 1/base*(Power(base,exponent+1));
+        else 
+            return base*(Power(base,exponent-1));
+  }
+}
