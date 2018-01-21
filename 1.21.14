@@ -1,0 +1,31 @@
+/*
+public class ListNode {
+    int val;
+    ListNode next = null;
+
+    ListNode(int val) {
+        this.val = val;
+    }
+}*/
+public class Solution {
+    public ListNode FindKthToTail(ListNode head,int k) {
+        if(head==null||k<=0){  
+            return null;  
+        }  
+		 ListNode last=head;         
+        for(int i=1;i<k;i++){  
+            if(head.next!=null){  
+                head=head.next;  
+            }else{  
+                return null;  
+            }  
+        }  
+        while(head.next!=null){  
+            head = head.next;  
+            last=last.next;  
+        }  //两个指针，第一个指针走到k-1时第二个指针开始，两个指针
+            //始终相隔k-1个单位 则在第一个指针走到最后时 第二个指针的位置正好为
+            //倒数第k 个。
+        return last;  
+    }
+}
