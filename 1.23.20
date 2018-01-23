@@ -1,0 +1,35 @@
+import java.util.Stack;
+
+public class Solution {
+
+    Stack stack=new Stack();
+    public void push(int node) {
+        stack.push(node);
+    }
+    
+    public void pop() {
+        stack.pop();
+    }
+    
+    public int top() {
+        int top=(int) stack.pop();
+        return top;
+    }
+    
+    public int min() {
+        Stack s=new Stack();
+        int min=(int)stack.pop();
+        s.push(min);
+        while(!stack.isEmpty()){
+            int t=(int)stack.pop();
+            if(min>t){
+                min=t;
+            }
+            s.push(t);
+        }
+        while(!s.isEmpty()){
+            stack.push(s.pop());
+        }
+        return min;
+    }
+}
