@@ -1,0 +1,29 @@
+import java.util.ArrayList;
+import java.util.Stack;
+
+public class Solution {
+    public boolean IsPopOrder(int [] pushA,int [] popA) {
+       if(pushA.length<=0||popA.length<=0){
+           return false;
+       }
+        int j=0;
+        Stack<Integer> a=new Stack<Integer>();
+       for(int i=0;i<pushA.length;i++){
+           a.push(pushA[i]);
+           if(pushA[i]==popA[j]){
+               j++;
+               if(j==popA.length){
+                   return true;
+               }
+               a.pop();
+           }
+       }
+        while(!a.isEmpty()){
+            if(a.pop()!=popA[j++])
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+}
